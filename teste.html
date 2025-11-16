@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .nba-buttons {
+   display: flex;
+   gap: 10px;
+}
+
+.btn-nba {
+   padding: 10px 20px;
+   background: #111;
+   color: #fff;
+   border: 1px solid #444;
+   border-radius: 6px;
+   cursor: pointer;
+   font-family: Poppins;
+   transition: .2s;
+}
+
+.btn-nba:hover {
+   background: #222;
+}
+
+.btn-nba.active {
+   background: red;
+   border-color: red;
+}
+
+.nba-tabela {
+   display: none;
+   margin-top: 20px;
+}
+
+.nba-tabela.show {
+   display: block;
+}
+
+    </style>
+</head>
+<body>
+   <div class="nba-container">
+
+   <div class="nba-buttons">
+      <button class="btn-nba active" data-target="leste">Conferência Leste</button>
+      <button class="btn-nba" data-target="oeste">Conferência Oeste</button>
+   </div>
+
+   <div class="nba-tabela show" id="leste">
+      <table>
+         <tr><th>Time</th><th>Vitórias</th><th>Derrotas</th></tr>
+         <tr><td>Celtics</td><td>54</td><td>19</td></tr>
+         <tr><td>Bucks</td><td>50</td><td>23</td></tr>
+      </table>
+   </div>
+
+   <div class="nba-tabela" id="oeste">
+      <table>
+         <tr><th>Time</th><th>Vitórias</th><th>Derrotas</th></tr>
+         <tr><td>Nuggets</td><td>52</td><td>21</td></tr>
+         <tr><td>Thunder</td><td>49</td><td>24</td></tr>
+      </table>
+   </div>
+
+</div>
+<script>
+    const buttons = document.querySelectorAll('.btn-nba');
+   const tabelas = document.querySelectorAll('.nba-tabela');
+
+   buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+
+         // Remove active de todos os botões
+         buttons.forEach(b => b.classList.remove('active'));
+
+         // Ativa o botão clicado
+         btn.classList.add('active');
+
+         // Esconde todas as tabelas
+         tabelas.forEach(tab => tab.classList.remove('show'));
+
+         // Mostra somente a tabela clicada
+         const target = btn.getAttribute('data-target');
+         document.getElementById(target).classList.add('show');
+      });
+   });
+</script>
+
+ 
+</body>
+</html>

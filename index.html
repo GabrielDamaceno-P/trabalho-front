@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet">
+   <title>Esportes</title>
+   <style>
+      body,
+      html {
+         margin: 0;
+         background: linear-gradient(180deg, #060607 0%, #0d0d0f 100%);
+         min-height: 100vh;
+      }
+      .nav-esporteagora{
+         display: flex;
+         align-items: center;
+         gap: 12px;
+         position: absolute;
+         left: 20px;
+      }
+      .nav-mark{
+         width: 42px;
+         height: 42px;
+         border-radius: 8px;
+         background:#e31b23 ;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         font-family: Poppins;
+         font-weight: 700;
+         font-size: 18px;
+         color: white;
+         box-shadow:0 4px 16px rgba(227,27,35,0.3) ;
+      }
+      .nav-title{
+         font-family: Poppins;
+         font-size: 18px;
+         font-weight: 700;
+         color: white;
+         margin: 0;
+      }
+      .nav-subtitle{
+         font-family: Poppins;
+         font-size: 12px;
+         color:#6b6b6b ;
+         margin-top: -2px;
+      }
+
+      nav {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         padding: 0;
+         position: relative;
+      }
+
+      nav ul {
+         list-style: none;
+         display: flex;
+         padding: 0;
+         margin: 0;
+         color: #ddd
+      }
+
+      nav input {
+         position: absolute;
+         right: 5%;
+         padding: 8px 14px;
+         border-radius: 6px;
+         border: color(#ffffff);
+         outline: none;
+         background: linear-gradient(180deg, rgba(10, 10, 10), rgba(10, 10, 10, 0.85));
+         color: #ddd
+      }
+
+      nav li {
+         margin: 20px;
+         font-family: Roboto, system-ui, -apple-system, 'Segoe UI', Arial;
+         padding: 8px 10px;
+         font-weight: 500
+      }
+
+      nav li:hover {
+         background-color: rgba(255, 255, 255, 0.15);
+         border-radius: 5px;
+         padding: 8px 10px;
+
+      }
+
+      ul li a {
+         color: inherit;
+         text-decoration: none;
+      }
+
+      .secao-1 {
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+
+      }
+
+      .linha-card {
+         display: flex;
+         gap: 20px;
+      }
+
+      .nav-style {
+         background: linear-gradient(180deg, rgba(10, 10, 10), rgba(10, 10, 10, 0.85));
+      }
+
+      .card-noticia {
+         width: 65%;
+         border: 2px solid #000;
+         border-radius: 10px;
+         background: linear-gradient(180deg, rgba(10, 10, 10), rgba(10, 10, 10, 0.90));
+         padding: 10px;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      }
+
+
+      .imagem-card {
+         width: 100%;
+         height: 50vh;
+         border: 2px solid #000;
+         background-image: url("https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2025/11/gol-estevao-brasil-senegal-e1763225252113.jpg?w=1320&h=742&crop=0");
+         background-size: cover;
+         background-position: center;
+         border-radius: 8px;
+         margin-bottom: 20px;
+      }
+
+      .texto-card {
+         padding: 0;
+         border-radius: 8px;
+         color: white;
+         font-family: Poppins;
+      }
+
+      .texto-card a {
+         background: rgba(255, 255, 255, 0.07);
+         display: inline-block;
+         margin-top: 15px;
+         color: white;
+         border: 2px solid rgb(54, 54, 54);
+         padding: 4px 10px;
+         border-radius: 6px;
+         text-decoration: none;
+         transition: 0.2 ease;
+      }
+
+      .texto-card a:hover {
+         background: rgba(255, 255, 255, 0.02);
+         ;
+         transform: translateY(-2px);
+      }
+
+      .tabela {
+         display: flex;
+         flex-direction: column;
+         background: linear-gradient(180deg, rgba(17, 17, 17, 0.8), rgba(14, 14, 14, 0.85));
+         border: 1px solid black;
+         border-radius: 12px;
+         width: 30%;
+         min-height: 320px;
+
+      }
+
+      .resultado {
+         background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+         border: 1px solid black;
+         border-radius: 12px;
+         margin: 10px 20px 20px;
+         padding: 14px;
+         height: 20%;
+      }
+
+      .placar {
+         display: flex;
+         align-items: center;
+         margin: 10px;
+      }
+
+      .times {
+         font-weight: 800;
+         color: #ddd;
+         margin: 0 4px;
+      }
+
+      .gols {
+         font-size: 26px;
+         font-weight: 600;
+         color: red;
+      }
+
+      .lista li {
+         list-style: none;
+         padding: 30px 6px;
+         border-bottom: 1px dashed rgba(255, 255, 255, 0.03);
+         font-size: 18px;
+         color: #ddd;
+      }
+
+      .tabela-campeonato {
+         margin: auto;
+         width: 80%;
+         align-items: center;
+         border-collapse: collapse;
+         margin-bottom: 20px;
+         font-size: 14px;
+         background: #0e0f10;
+         border-radius: 20px;
+         box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+         font-family: Poppins;
+      }
+
+      .tabela-campeonato td {
+         color: #ddd;
+      }
+
+      .card {
+         display: flex;
+         gap: 20px;
+         margin-top: 20px;
+         width: 100%;
+
+      }
+
+      .card-metade {
+         box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+         flex: 1;
+         height: 320px;
+         background: #000;
+         border-radius: 12px;
+         overflow: hidden;
+         display: flex;
+         flex-direction: column;
+         transition: .3s;
+         cursor: pointer;
+      }
+
+      .card-metade:hover {
+         transform: translateY(-5px);
+      }
+
+      .imagem-card2 {
+         height: 100%;
+         background-size: cover;
+         background-position: right;
+      }
+
+      .conteudo-card {
+         font-family: Poppins;
+         height: 20%;
+         background: rgba(255, 255, 255, 0.06);
+         padding: 30px;
+      }
+
+      .tabela-nba {
+         display: flex;
+         gap: 30px;
+         width: 100%;
+         justify-content: center;
+         align-items: flex-start;
+         margin-top: 20px;
+      }
+
+      .tabela-box {
+         flex: 1;
+         max-width: 600px;
+      }
+      .mma-flex{
+         display: flex;
+         gap: 30px;
+         margin-top: 20px;
+         width: 100%;
+         align-items: flex-start;
+      }
+
+      .lutadores-destaque {
+         background: #000;
+         padding: 20px;
+         border-radius: 12px;
+         border: 1px solid #333;
+         box-shadow: 0 0 12px rgba(255, 0, 0, 0.1);
+         width: 100%;
+         max-width: 550px;
+      }
+
+      .lutador {
+         display: flex;
+         align-items: center;
+         gap: 15px;
+         padding: 16px;
+         background: rgba(255, 255, 255, 0.03);
+         border-radius: 14px;
+         margin-bottom: 12px;
+         cursor: pointer;
+         transition: .3s ease;
+      }
+
+      .lutador:hover {
+         transform: translateY(-3px);
+         background: rgba(255, 255, 255, 0.06);
+      }
+
+      .imagem-lutador {
+         width: 90px;
+         height: 90px;
+         background-size: cover;
+         background-position: center;
+         border-radius: 10px;
+      }
+
+      .lutador .info h3 {
+         margin: 0;
+         font-family: Poppins, sans-serif;
+         color: #eee;
+         font-size: 19px;
+      }
+
+      .lutador .info p {
+         margin: 3px 0 0;
+         color: #6b6b6b;
+         font-size: 14px;
+         font-family: Poppins, sans-serif;
+      }
+      .caixa{
+         background: linear-gradient(180deg, rgba(17, 17, 17, 0.8), rgba(14, 14, 14, 0.85));
+         border: 1px solid black;
+         border-radius: 12px;
+         padding: 20px;
+      }
+   </style>
+</head>
+
+<body>
+   <nav class="nav-style">
+
+   <div class="nav-esporteagora">
+      <div class="nav-mark">ES</div>
+
+      <div>
+         <div class="nav-title">EsporteAgora</div>
+         <div class="nav-subtitle">Notícias, análises e resultados</div>
+      </div>
+   </div>
+
+   <input type="search" placeholder="pesquise no site...">
+
+   <ul>
+      <li><a href="#futebol">Futebol</a></li>
+      <li><a href="#basquete">Basquete</a></li>
+      <li><a href="#mma">MMA</a></li>
+   </ul>
+
+</nav>
+   <section class="secao-1" id="futebol">
+      <div class="linha-card">
+
+         <div class="card-noticia">
+            <div class="imagem-card"></div>
+            <div class="texto-card">
+
+               <h1>Brasil vence seleção Senegalesa pelo placar de 2 x 0 e impressiona</h1>
+               <p>Com gols de Estevão e Casemiro, Brasil vence amistoso contra Senegal e impressiona a menos de 1 ano da
+                  Copa do Mundo de 2026. Leia a análise dos melhores momentos </p>
+               <a href="#">Leia a matéria</a>
+            </div>
+         </div>
+
+         <div class="tabela">
+            <div class="resultado">
+               <p style="margin: 0 ; color:  #6b6b6b;">Resultado</p>
+               <div class="placar">
+                  <div class="times">
+                     Brasil<span style="font-weight: 400; color: #6b6b6b;"> vs </span> Senegal
+                  </div>
+                  <div class="gols">2-0</div>
+               </div>
+               <div style="margin-top: 10px; font-size: 16px; color: #6b6b6b ;">Gols: Estevão(28'), Casemiro(35')</div>
+            </div>
+
+            <div class="resultado" style="flex: 1; display: flex; flex-direction: column; padding-top: 10px; ">
+               <h4 style="margin: 0 0 8px; font-size: 16px; font-family: Poppins; color: #ddd;">Proximos Jogos</h4>
+               <ul class="lista" style="margin: 0; padding: 0;">
+                  <li><strong>Ter, 16:30 </strong>Brasil x Tunisia</li>
+                  <li><strong>Ter, 16:40 </strong>Espanha x Turquia</li>
+                  <li><strong>Qua, 19:30 </strong>Palmeiras x Vitoria</li>
+                  <li><strong>Qua, 21:30 </strong>Fluminense x Flamengo</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+
+      <table class="tabela-campeonato">
+         <thead>
+            <tr style="background: red; color: #ddd; text-transform: uppercase; font-size: 13px;">
+               <th style="padding: 10px;">Pos</th>
+               <th>Time</th>
+               <th>Pontos</th>
+               <th>Saldo</th>
+               <th>Ultimos Jogos</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>1</td>
+               <td>Flamengo</td>
+               <td>71</td>
+               <td>+48</td>
+               <td>✔️✔️➖✔️❌</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>Palmeiras</td>
+               <td>68</td>
+               <td>+29</td>
+               <td>❌❌✔️✔️➖</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>Cruzeiro</td>
+               <td>64</td>
+               <td>+24</td>
+               <td>➖✔️✔️➖✔️</td>
+            </tr>
+         </tbody>
+      </table>
+
+
+   </section>
+
+   <section class="secao-1" id="basquete">
+      <h2 style="color: #ddd;">Basquete - Estatísticas da Rodada</h2>
+
+      <div class="card">
+
+         <div class="card-metade">
+            <div class="imagem-card2"
+               style="background-image: url('https://bolade3.com.br/wp-content/uploads/2022/06/basquete-betsul-brasileiros-nbalat-1024x683.jpg');">
+            </div>
+
+            <div class="conteudo-card">
+               <h3 style="font-size: 20px; color: #ddd;">Lakers tem primeiro tempo de gala e domina os Bucks</h3>
+               <p style="font-size: 12px; color: #6b6b6b;">Os Lakers chegaram à 10 vitória em 14 jogos na temporada
+                  2025-26 da NBA</p>
+            </div>
+         </div>
+
+         <div class="card-metade">
+            <div class="imagem-card2"
+               style="background-image: url('https://bolade3.com.br/wp-content/uploads/2022/06/basquete-betsul-brasileiros-nbalat-1024x683.jpg');">
+            </div>
+
+            <div class="conteudo-card" style="color: #ddd;">
+               <h3 style="font-size: 20px; color: #ddd;">Stephen Curry encerra parceria com marca esportiva</h3>
+               <p style="font-size: 12px; color: #6b6b6b;">Curry assume controle total da Curry Brand e tem liberdade
+                  para usar outras marcas</p>
+            </div>
+         </div>
+
+      </div>
+      <div class="tabela-nba">
+         <div class="tabela-box">
+
+            <h2 style="color: #ddd;">Conferência Leste</h2>
+            <table class="tabela-campeonato">
+               <thead>
+                  <tr style="background: red; color: #ddd; text-transform: uppercase; font-size: 13px;">
+                     <th style="padding: 10px;">Time</th>
+                     <th>Vitórias</th>
+                     <th>Derrotas</th>
+                     <th>%</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Pistons</td>
+                     <td>11</td>
+                     <td>2</td>
+                     <td>.846</td>
+                  </tr>
+                  <tr>
+                     <td>Knicks</td>
+                     <td>8</td>
+                     <td>4</td>
+                     <td>.667</td>
+                  </tr>
+                  <tr>
+                     <td>Cavaliers</td>
+                     <td>9</td>
+                     <td>5</td>
+                     <td>.643</td>
+                  </tr>
+                  <tr>
+                     <td>Raptors</td>
+                     <td>8</td>
+                     <td>5</td>
+                     <td>.615</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+
+         <div class="tabela-box">
+
+
+            <h2 style="color: #ddd;">Conferência Oeste</h2>
+            <table class="tabela-campeonato">
+               <thead>
+                  <tr style="background: red; color: #ddd; text-transform: uppercase; font-size: 13px;">
+                     <th style="padding: 10px;">Time</th>
+                     <th>Vitórias</th>
+                     <th>Derrotas</th>
+                     <th>%</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                     <td>Thunder</td>
+                     <td>13</td>
+                     <td>1</td>
+                     <td>.929</td>
+                  </tr>
+                  <tr>
+                     <td>Nuggets</td>
+                     <td>10</td>
+                     <td>2</td>
+                     <td>.833</td>
+                  </tr>
+                  <tr>
+                     <td>Rockets</td>
+                     <td>8</td>
+                     <td>3</td>
+                     <td>.727</td>
+                  </tr>
+                  <tr>
+                     <td>Lakers</td>
+                     <td>10</td>
+                     <td>4</td>
+                     <td>.714</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+
+
+   </section>
+
+   <section class="secao-1" id="mma">
+      <h2 style="color: #ddd;">MMA - Estatísticas da Rodada</h2>
+
+      <div class="card">
+
+         <div class="card-metade">
+            <div class="imagem-card2"
+               style="background-image: url('https://images.wallpaperscraft.com/image/single/mixed_martial_arts_mma_wrestling_124946_3840x2400.jpg');">
+            </div>
+
+            <div class="conteudo-card">
+               <h3 style="font-size: 20px; color: #ddd;">Carlos Prates nocauteia ex-campeão</h3>
+               <p style="font-size: 12px; color: #6b6b6b;">Brasileiro derrotou Leon Edwards e pediu chance pelo título
+                  dos pesos-medios </p>
+            </div>
+         </div>
+
+         <div class="card-metade">
+            <div class="imagem-card2"
+               style="background-image: url('https://images.wallpaperscraft.com/image/single/mixed_martial_arts_mma_wrestling_124946_3840x2400.jpg');">
+            </div>
+
+            <div class="conteudo-card" style="color: #ddd;">
+               <h3 style="font-size: 20px; color: #ddd;">Kaczmarczyk finaliza e leva cinturão interino dos penas</h3>
+               <p style="font-size: 12px; color: #6b6b6b;">Polonês bate compatriota Adam Soldaev e poderá desafiar
+                  campeão </p>
+            </div>
+         </div>
+
+      </div>
+      <div class="mma-flex">
+
+         <div class="tabela">
+            <div class="resultado" style="flex: 1; display: flex; flex-direction: column; padding-top: 10px; ">
+               <h4 style="margin: 0 0 8px; font-size: 16px; font-family: Poppins; color: #ddd;">Proximas Lutas</h4>
+               <ul class="lista" style="margin: 0; padding: 0;">
+                  <li><strong>22 Nov, 15:00 </strong>Arman Tsarukyan x Dan Hooker</li>
+                  <li><strong>22 Nov, 16:00 </strong>Volkan Oezdemir x Alonzo Menifield</li>
+                  <li><strong>6 Dez, 20:00 </strong>Alex Perez x Asu Almabayev</li>
+                  <li><strong>13 Dez, 21:30 </strong>Royval x Kape</li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="lutadores-destaque">
+            <div class="lutador">
+
+               <div class="imagem-lutador"
+                  style="background-image: url('https://p2.trrsf.com/image/fget/cf/1200/1200/middle/images.terra.com/2024/04/15/492808233-poatancinturaoufc300.jpeg');">
+               </div>
+               <div class="info">
+                  <h3>Alex Pereira</h3>
+                  <p>13 vitórias✅/ 3 derrotas❌</p>
+               </div>
+            </div>
+            <div class="lutador">
+
+               <div class="imagem-lutador"
+                  style="background-image: url('https://tse1.mm.bing.net/th/id/OIP.Dml07SqbSc-8uz0-qIUKfQHaE8?w=474&h=379&c=7&p=0');">
+               </div>
+               <div class="info">
+                  <h3>Ilia Topuria</h3>
+                  <p>17 vitórias✅/ 0 derrotas❌</p>
+               </div>
+            </div>
+            <div class="lutador">
+
+               <div class="imagem-lutador"
+                  style="background-image: url('https://i.ytimg.com/vi/XG4Hhd4rqhA/hq720.jpg?rs=AOn4CLByiQA8_XQxPUP25NjzCPV6P9urQw&sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD');">
+               </div>
+               <div class="info">
+                  <h3>Islam Makhachev</h3>
+                  <p>27 vitórias✅/ 1 derrotas❌</p>
+               </div>
+            </div>
+         </div>
+         <div class="caixa">
+            <h4 style="color: #ddd; font-family: Poppins;">Inscreva-se</h4>
+            <p style="font-family: Poppins; color:  #6b6b6b;">Receba um resumo diário com os principais destaques</p>
+            <label><input type="email" placeholder="seu@exemplo.com" style="flex: 1; padding: 5px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); background: transparent; color: #fff;" ></label> 
+            <button style="background: red; border: none; padding: 10px; border-radius: 8px; color: #fff; font-weight: 700;">Inscrever</button>
+         </div>
+      </div>
+
+
+   </section>
+
+
+</body>
+
+</html>
