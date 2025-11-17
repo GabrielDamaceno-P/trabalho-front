@@ -264,8 +264,7 @@
          gap: 30px;
          width: 100%;
          justify-content: center;
-         align-items: flex-start;
-         margin-top: 20px;
+         margin-top: 0px;
       }
 
       .tabela-box {
@@ -282,13 +281,15 @@
       }
 
       .lutadores-destaque {
+         display: flex;
+         flex-direction: column;
          background: #000;
          padding: 20px;
          border-radius: 12px;
          border: 1px solid #333;
          box-shadow: 0 0 12px rgba(255, 0, 0, 0.1);
          width: 100%;
-         max-width: 550px;
+         max-width: 450px;
       }
 
       .lutador {
@@ -339,7 +340,7 @@
 
       @media (max-width: 768px) {
 
-         nav {
+         .nav-style {
             padding: 10px;
             flex-direction: column;
             gap: 10px;
@@ -351,12 +352,12 @@
             justify-content: center;
          }
 
-         nav ul {
+         .nav-style ul {
             flex-wrap: wrap;
             justify-content: center;
          }
 
-         nav input {
+         .nav-style input {
             position: relative;
             width: 90%;
             margin: 10px 0;
@@ -731,7 +732,7 @@
             <h4 style="color: #ddd; font-family: Poppins;">Inscreva-se</h4>
             <p style="font-family: Poppins; color:  #6b6b6b;">Receba um resumo diário com os principais destaques</p>
             <label><input type="email" placeholder="seu@exemplo.com"
-                  style="flex: 1; padding: 5px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); background: transparent; color: #fff;"></label>
+                  style="padding: 5px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); background: transparent; color: #fff;"></label>
             <button
                style="background: red; border: none; padding: 10px; border-radius: 8px; color: #fff; font-weight: 700;">Inscrever</button>
          </div>
